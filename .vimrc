@@ -83,8 +83,10 @@ else
   set   autoindent
 endif
 
-" Hit "enter" after a search will get rid of the highlighting
-nnoremap <CR> :nohlsearch<CR>
+function! MapCR()
+    nnoremap <cr> :nohlsearch<cr>
+endfunction
+call MapCR()
 
 " Remap the tab key to do autocompletion or indentation depending on the
 " context (from http://www.vim.org/tips/tip.php?tip_id=102)
