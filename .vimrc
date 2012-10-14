@@ -105,10 +105,6 @@ command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S %z')<cr>
 "  For a mix-formatted file 
 map <F2> :%s/$//g
 
-"  Bust a shell
-map <F3> :!$SHELL<CR>
-
-
 " eliminates the bottommost quoted sig.  does ^> --\n *and* ^> -- \n !!!
 nmap <F9> mbgg/^>\s\=--\s\= <CR>maG?^-- <CR>kv`ad <CR>`b
 map _d G?^><CR>?^> -- $<CR>d}
