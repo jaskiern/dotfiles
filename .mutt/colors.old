@@ -1,0 +1,49 @@
+# mutt colors
+#
+# Jerry Jaskierny <jaskiern@fscked.org>
+#     Last modified:  Sat Feb 14 15:25:58 CST 2004
+#
+# NOTE:  these colors are tuned for a black background
+#
+
+color hdrdefault cyan default
+color header     green default     "^Date: "
+color header     green default     "^From "
+color header     green default     "^From: "
+color header     green default     "^X-Mailer: "
+color header     green default     "^Reply-To: "
+color header     green default     "^To: "
+color header     green default     "^CC: "
+color header     green default     "^BCC: "
+color header     green default     "^Subject: "
+##color attachment brightyellow default
+color attachment yellow default
+color index      brightred default ~F
+#color index      black black ~D
+color index      brightyellow default ~N      # New
+color quoted     green default
+color signature  brightred default
+##color indicator  green default
+##color indicator  black cyan
+color indicator  brightwhite default
+color error      brightred default
+color normal     white default
+color search     black white
+# this looks good, but only on machines that don't use UTF-8 (at least i think
+# that's what does it
+##color status     yellow blue
+color status     brightwhite blue
+color tilde      blue default
+#color tree       brightmagenta default
+color tree       default default
+color body       brightmagenta default "mailto: *[^ ]+\(\\?subject=[^ ]+\)?"
+color body       brightmagenta default "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+color body       brightmagenta default "(finger|ftp|http|https|news|telnet|file)://[^ >]*"
+color body       brightmagenta default "<URL:[^ ]*>"
+color body       brightmagenta default "www\\.[-.a-z0-9]+\\.[a-z][a-z][a-z]?([-_./~a-z0-9]+)?"
+
+# URL highlighting with the same regexp as urlview.
+##color  body            brightmagenta default    (((ht|f)tps?)|mailto):(//)?[^\ " \t]*|www\.[-a-z0-9.]+)[^\ .,;\t>">]
+##color  body            brightmagenta   default "[-a-z_0-9.]+@[-a-z_0-9.]+"
+
+# vim: syntax=muttrc

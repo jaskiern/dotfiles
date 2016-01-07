@@ -1,0 +1,57 @@
+# aliases
+#
+# jaskiern@channelsix.org
+##
+
+alias me            jaskiern@channelsix.org (Jerry Jaskierny)
+alias erin          zaletel@arctan.net (Erin Zaletel)
+alias kates         princesspinty@yahoo.com (Kates)
+alias mikepery      mikepery@fscked.org (Mike Perry)
+#alias grandma       rosemary9s@cs.com (Grandma)
+#alias grandma       rosemary9s@earthlink.net (Grandma)
+#alias grandma       rosemary9s@netzero.com (Grandma)
+alias grandma       rfpc3@verizon.net (Grandma)
+#alias mom           rosmrytoo@juno.com (Mom)
+alias mom           rpjaskierny@gmail.com (Rosemary Jaskierny)
+alias stabrawa      tstabrawa@pobox.com (Tim Stabrawa)
+#alias sbassett      scott@geekspotting.com (Scott Bassett)
+alias cindy         cindy.zaletel@gmail.com (Cindy Zaletel)
+alias tskirvin      tskirvin@uiuc.edu (Tim Skirvin)
+#alias ockers        ockers@uiuc.edu (John Ockers)
+alias rob           piratexandor@hotmail.com (Rob Mishur)
+alias zuofu         zcheng1@uiuc.edu (Zuofu Cheng)
+#alias jones         nrjones8@comcast.net (Nick Jones)
+alias unclebob      rjtinski169@hotmail.com (Bob Jaskierny)
+#alias kwerner       kwerner@uiuc.edu (kwerner)
+alias jane          jf982000@yahoo.com (Jane Flanagan)
+alias ed            eddiekerns@yahoo.com (Ed Vehrs)
+#alias lli           lli@uiuc.edu (Liuyang Li)
+alias kathy         purduekathy@yahoo.com (Kathy Bian)
+alias unclejim      jperveiler49@yahoo.com (Jim Perveiler)
+alias bets          betsyperveiler@gmail.com (Betsy Perveiler)
+alias dad           jgjaskierny@gmail.com (Jerry Jaskierny)
+#alias mike          stillflysince84@msn.com (Mike Perveiler)
+alias eamon         ecaddiga@uiuc.edu (Eamon Caddigan)
+alias robin         rrichar1@u.washington.edu (Robin Richardson)
+alias natalie       nstabrawa@illinoisalumni.org (Natalie Stabrawa)
+#alias natalie       nsigler@illinoisalumni.org (Natalie Sigler)
+alias gmail         jaskiern@gmail.com (Jerry Jaskierny)
+alias jake          jakezaletel@hotmail.com (Jake Zaletel)
+alias brytne        brytne.winfrey@gmail.com (Brytne Winfrey)
+alias andrew        andrew@seattlejungle.com (Andrew Nichols)
+alias alexis        aprettynicegirl@gmail.com
+#alias diane         deedeeweng@hotmail.com
+alias kvn           leek76@hotmail.com (Kevin Lee)
+
+alias mattca        a-mattca@microsoft.com (Matt Carson)
+
+# Mailing lists
+# To: My Family:;
+# Bcc: actual_list_name
+alias parents         dad, mom
+alias myfamily        parents, kates
+alias myefamily       myfamily, erin
+
+# School People
+
+# vim: syntax=muttrc nowrap

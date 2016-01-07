@@ -1,0 +1,48 @@
+# mutt colors
+#
+# Jerry Jaskierny <jaskiern@fscked.org>
+#     Last modified:  Sat Feb 14 15:25:58 CST 2004
+#
+# NOTE:  these colors are tuned for a black background
+#
+
+color hdrdefault cyan default
+color header     green default     "^Date: "
+color header     green default     "^From "
+color header     green default     "^From: "
+color header     green default     "^X-Mailer: "
+color header     green default     "^Reply-To: "
+color header     green default     "^To: "
+color header     green default     "^CC: "
+color header     green default     "^BCC: "
+color header     green default     "^Subject: "
+color attachment yellow default
+color index      brightred default ~F         # Important
+#color index      black default ~D              # Deleted
+#color index      blue default ~D              # Deleted
+#color index      green default ~D              # Deleted
+color index      cyan default ~D              # Deleted
+color index      brightyellow default ~N      # New
+color quoted     brightmagenta default
+color signature  brightblue default
+# i have yet to find a good color my eyes can easily follow when i speed
+# through thousands of mails
+##color indicator  brightmagenta default
+color indicator  brightblack white
+color error      brightred default
+color normal     white default
+color search     black white
+# i don't know which of these two status's i like better or which is more
+# practical
+color status     brightyellow blue
+##color status     brightwhite blue
+color tilde      blue default
+color tree       brightmagenta default
+color body       brightyellow default "mailto: *[^ ]+\(\\?subject=[^ ]+\)?"
+color body       brightyellow default "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+color body       brightyellow default "(finger|ftp|http|https|news|telnet|file)://[^ >]*"
+color body       brightyellow default "<URL:[^ ]*>"
+color body       brightyellow default "www\\.[-.a-z0-9]+\\.[a-z][a-z][a-z]?([-_./~a-z0-9]+)?"
+
+
+# vim: syntax=muttrc nowrap

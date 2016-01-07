@@ -1,0 +1,10 @@
+# mail to <jaskiern@uiuc.edu>
+
+set   hostname="uiuc.edu"
+
+unmy_hdr From: Reply-To
+
+my_hdr From: jaskiern@uiuc.edu (Jerry Jaskierny)
+my_hdr Reply-To: jaskiern@uiuc.edu
+
+# vim: syntax=muttrc nowrap

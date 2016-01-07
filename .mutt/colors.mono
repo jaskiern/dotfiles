@@ -1,0 +1,18 @@
+# mutt mono
+#
+# Jerry Jaskierny <jaskiern@fscked.org>
+#     Last modified:  Fri Jan  9 00:52:58 CST 2004
+#
+
+mono body     underline  "mailto: *[^ ]+\(\\?subject=[^ ]+\)?"
+mono body     underline  "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+mono body     underline  "(finger|ftp|http|https|news|telnet|file) ://[^ >]*"
+mono body     underline  "<URL:[^ ]*>"
+mono body     underline  "www\\.[-.a-z0-9]+\\.[a-z][a-z][a-z]?([-_ ./~a-z0-9]+)?"
+
+mono  error      reverse
+mono  index      bold     ~F
+mono  quoted     bold
+mono  search     reverse
+
+# vim: syntax=muttrc nowrap

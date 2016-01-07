@@ -1,0 +1,73 @@
+#  muttrc.local
+#
+#  jaskiern <jaskiern@fscked.org>
+#      Last modified:  Wed Dec  8 13:21:50 CST 2004
+#
+#  Create ~/tmp, ~/mail, ~/.mutt/aliases, ~/mail/outbox, ~/mail/mbox,
+#      ~/mail/lists
+#  my usage of mutt is heavily tied in with procmail
+##
+
+# list ahead of variables that expand these variables?
+set   folder="~/mail"
+set   spoolfile="=mbox/current"
+
+set   alias_file="~/.mutt/aliases"
+set   editor="vim '+/^$/+'"       # begin after headers
+set   hostname="channelsix.org"
+set   implicit_autoview="yes"
+set   ispell="aspell -c"
+set   postponed="=postponed"
+#set   print_command="lpr"
+set   query_command="~/progs/me/bin/mutt-ldapquery '%s'"  # so damn handy
+set   realname="Jerry Jaskierny"
+set   record="=outbox/`date +%Y-%m`"
+#set   sort_browser="reverse-alpha"
+set   sort_browser="alpha"
+set   tmpdir="$TMP"              # don't want to use the public /tmp
+unset use_domain                  # when i don't give a "@host", it might be a
+                                  # mailing list, not just a local user
+unset use_from
+
+
+
+auto_view text/html image/*
+
+alternates "jaskiern@uiuc\.edu" "jaskiern@.*fscked\.org" "jaskiern@.*channelsix\.org"
+
+# these mailboxes should be at the end of ~/.procmail/lists and listed in the
+# $MAILPATH (~/.bashrc)
+mailboxes =mbox/*
+
+# subscribe to LISTS that go to current.  else, just put the
+# mailbox in ~/mail/lists
+#subscribe `cd ~/mail/subscribe && echo *`
+lists `cd ~/mail/lists && echo *`
+
+unmy_hdr From:
+unmy_hdr Reply-To:
+my_hdr From: Jerry Jaskierny <jaskiern@channelsix.org>
+my_hdr Reply-To: jaskiern@channelsix.org
+
+ignore *
+unhdr_order *
+unignore  Date: From From: Reply-To: To: Newsgroups: Cc: Subject: Message-ID: X-CRM114-Status:
+hdr_order Date: From From: Reply-To: To: Newsgroups: Cc: Subject: Message-ID: X-CRM114-Status:
+
+#
+# source hooks that are lists, but not under ~/mail/lists/, not massmail lists
+folder-hook '~/mail/lists/*'                   source ~/.mutt/hooks/lists
+send-hook   '~C sigmil-l*@acm\.uiuc\.edu'      source ~/.mutt/hooks/lists
+
+# when people mail me at this address, maintain specific headers
+reply-hook   '~C jaskiern@uiuc\.edu'      source ~/.mutt/headers/uiuc
+
+
+source ~/.mutt/colors.color
+source ~/.mutt/colors.mono
+folder-hook '~/mail/mbox/*'                    source ~/.mutt/gpg.rc
+#source ~/.mutt/gpg.rc
+source ~/.mutt/bindings
+source ~/.mutt/aliases
+
+# vim: syntax=muttrc nowrap

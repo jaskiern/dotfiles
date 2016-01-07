@@ -1,0 +1,133 @@
+#  mutt bindings
+#
+#  A lot of these bindings are vi-like.  Also, many of the functions that slrn
+#  and mutt share have been rebound to the same key
+#
+#  Jerry Jaskierny <jaskiern@fscked.org>
+#      Last modified:  Fri Aug 27 01:36:20 CDT 2004
+#
+
+
+
+# Browser
+
+bind browser <f1>      help
+bind browser ?         search-reverse
+#bind browser h         previous-page
+#bind browser l         next-page
+bind browser ' '       next-page
+bind browser backspace previous-page
+
+
+# Generic
+
+bind generic <f1>      help
+bind generic ?         search-reverse
+bind generic \Cu       half-up
+bind generic \Cd       half-down
+
+
+# Index
+bind index   \eD       delete-thread
+bind index   \eU       undelete-thread
+bind index   <f1>      help
+bind index   ?         search-reverse
+bind index   " "       next-page
+bind index   J         next-entry
+bind index   K         previous-entry
+bind index   >         next-page
+bind index   \Cd       next-page
+bind index   <         previous-page
+bind index   \Cu       previous-page
+bind index   P         print-message
+bind index   B         bounce-message
+bind index   "'"       limit
+bind index   p         parent-message
+
+
+# Pager
+
+bind pager   \Cu       half-up
+bind pager   \Cd       half-down
+bind pager   '{'       previous-thread
+bind pager   '}'        next-thread
+bind pager   ' '       next-page
+bind pager   backspace previous-page
+# rebind these two
+bind pager   \eD       delete-thread
+bind pager   \eU       undelete-thread
+bind pager   b         previous-page
+bind pager   B         bounce-message
+#bind pager   N         search-opposite
+bind pager   j         next-line
+bind pager   k         previous-line
+bind pager   H         display-toggle-weed
+bind pager   <f1>      help
+bind pager   ?         search-reverse
+bind pager   P         print-message
+bind pager   p         parent-message
+
+# Attach
+bind attach  P         print-entry
+
+
+
+#  Macros
+##
+
+# `urlview' makes a list of URL's from the mail (html and text).  you click on
+# one, and it pops open whatever the default browser is
+#macro index 'V' <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+#macro pager 'V' <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+#macro index 'V' <pipe-entry>'urlview'<enter>
+#macro pager 'V' <pipe-entry>'urlview'<enter>
+
+# `w3m' will view the mail as text (as mutt would).  but if you hit a ':', it
+# highlights the URLs and you can follow them in the text browser
+macro index 'V' <pipe-entry>'w3m'<enter> 'Follow links with w3m'  
+macro pager 'V' <pipe-entry>'w3m'<enter> 'Follow links with w3m'  
+
+# than w3m, but not as nice as urlview
+#macro index 'V' <pipe-entry>'elinks'<enter> 'Follow links with w3m'  
+#macro pager 'V' <pipe-entry>'elinks'<enter> 'Follow links with w3m'  
+
+# view the manual anytime in mutt by pressing F2
+macro generic <f2> "!less /usr/local/doc/mutt/manual.txt\n"
+macro index   <f2> "!less /usr/local/doc/mutt/manual.txt\n"
+macro pager   <f2> "!less /usr/local/doc/mutt/manual.txt\n"
+
+macro generic <f5> ":source ~/.mutt/muttrc\n"
+macro index   <f5> ":source ~/.mutt/muttrc\n"
+macro pager   <f5> ":source ~/.mutt/muttrc\n"
+
+# teach spamassassin to differentiate between spam and ham
+#macro pager X "| sa-learn --spam --no-rebuild --single\n<save-message>=spam/`date +%Y-%m-%d`\n"
+#macro index X "| sa-learn --spam --no-rebuild --single\n<save-message>=spam/`date +%Y-%m-%d`\n"
+
+#macro pager X "| sa-learn --spam --no-rebuild --single\n"
+#macro index X "| sa-learn --spam --no-rebuild --single\n"
+#macro pager A "| sa-learn --ham --no-rebuild --single\n"
+#macro index A "| sa-learn --ham --no-rebuild --single\n"
+
+# strip crm114 tags from the mail -- i'll bet it doesn't already do that and
+# probably might alter the learning
+#macro pager X "| formail -I X-CRM114-Status -I X-CRM114-Action -I X-CRM114-Version | (~/.crm114/mailfilter.crm --fileprefix=/home/jaskiern/.crm114/ --learnspam &> /dev/null && echo \"Relearned as spam\") || echo \"Error with false negative\"\n<save-message>=spam/`date +%Y-%m-%d`"
+#macro index X "| formail -I X-CRM114-Status -I X-CRM114-Action -I X-CRM114-Version | (~/.crm114/mailfilter.crm --fileprefix=/home/jaskiern/.crm114/ --learnspam &> /dev/null && echo \"Relearned as spam\") || echo \"Error with false negative\" \n<save-message>=spam/`date +%Y-%m-%d`"
+#macro pager A "| formail -I X-CRM114-Status -I X-CRM114-Action -I X-CRM114-Version | (~/.crm114/mailfilter.crm --fileprefix=/home/jaskiern/.crm114/ --learnnonspam &> /dev/null && echo \"Relearned as ham\") || echo \"Error with false positive\" \n"
+#macro index A "| formail -I X-CRM114-Status -I X-CRM114-Action -I X-CRM114-Version | (~/.crm114/mailfilter.crm --fileprefix=/home/jaskiern/.crm114/ --learnnonspam &> /dev/null && echo \"Relearned as ham\") || echo \"Error with false positive\" \n"
+#macro index A "| formail -I X-CRM114-Status -I X-CRM114-Action -I X-CRM114-Version | ~/.crm114/mailfilter.crm --fileprefix=~/.crm114/ --learnnonspam &> /dev/null && echo \"Relearned as ham\" \n<save-message>="
+
+# add mail to the whitelist
+#macro pager w "| spamassassin -W\n"
+#macro index w "| spamassassin -W\n"
+# report mail to some database (razor, etc...) as spam.  also need a different
+# keybinding
+##macro pager X "| spamassassin -r\n"
+##macro index X "| spamassassin -r\n"
+
+#macro pager X "| (bogofilter -s &> /dev/null && echo \"Relearned as spam\") || echo \"Error with false negative\"\n<save-message>=spam/`date +%Y-%m`"
+#macro index X "| (bogofilter -s &> /dev/null && echo \"Relearned as spam\") || echo \"Error with false negative\"\n<save-message>=spam/`date +%Y-%m`"
+#macro pager A "| (bogofilter -n &> /dev/null && echo \"Relearned as ham\") || echo \"Error with false positive\"\n"
+#macro index A "| (bogofilter -n &> /dev/null && echo \"Relearned as ham\") || echo \"Error with false positive\"\n"
+
+# vim: syntax=muttrc nowrap

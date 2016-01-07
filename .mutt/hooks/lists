@@ -1,0 +1,29 @@
+# mutt list hooks
+#
+# Jerry Jaskierny <jaskiern@fscked.org>
+#     Last modified:  Fri Jan 16 23:24:54 CST 2004
+#
+# gives mutt a bit of a slrn look.  makes it easier to read mailing lists
+#
+##
+
+
+# This is the index format for mailing lists.
+#set index_format="%4C %Z %{%b %d} %-15.15n (%4l) %s"
+
+# Sort on threads
+set sort=threads
+
+# Give mailing lists a more "slrn" like feel.
+set pager_index_lines=7
+
+# Easier to read mass mailings that you're only interested in half of the
+# mails
+set resolve
+
+ignore *
+unhdr_order *
+unignore  From: Reply-To: To: Newsgroups: Cc: Subject: Message-ID:
+hdr_order From: Reply-To: To: Newsgroups: Cc: Subject: Message-ID:
+
+# vim: syntax=muttrc nowrap
