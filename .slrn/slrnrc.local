@@ -1,0 +1,81 @@
+% slrnrc.local
+%
+%
+
+%  COLORS, keybindings(4.1.17), 4.2.1.  abort_unmodified_edits,
+%  custom_headers, *_help_line, *_status_line
+
+
+#if$NNTPSERVER news.cs.uiuc.edu
+    %  leaving the last field blank of "nnrpaccess" prompts for a password
+    nnrpaccess "news.cs.uiuc.edu" "jaskiern" "snu43upE"
+    server "news.cs.uiuc.edu" ".jnewsrc-cs"
+
+#elif$NNTPSERVER news.ks.uiuc.edu
+    nnrpaccess "news.ks.uiuc.edu" "jaskiern" "snu43upE"
+    server "news.ks.uiuc.edu" ".jnewsrc-ks"
+    set force_authentication 1
+
+#elif$NNTPSERVER news2.ks.uiuc.edu
+    nnrpaccess "news2.ks.uiuc.edu" "jaskiern" "snu43upE"
+    server "news2.ks.uiuc.edu" ".jnewsrc-ks"
+    set force_authentication 1
+#elif$NNTPSERVER news.qwest.net
+    nnrpaccess "news.qwest.net" "jaskiern" "caZy7zDQ"
+    server "news.qwest.net" ".jnewsrc-qwest"
+    %set force_authentication 1
+#elif$NNTPSERVER news.acm.uiuc.edu
+    nnrpaccess "news.acm.uiuc.edu" "jaskiern" "snu43upE"
+    server "news.acm.uiuc.edu" ".jnewsrc-acm"
+    set force_authentication 1
+#endif
+
+
+visible_headers "Newsgroups:,From:,Sender:,Subject:,Reply-To:,Followup-To:,User-Agent,Organization:"
+
+
+set server_object "nntp"
+%set signoff_string "jaskiern"
+
+% compatible_charsets, 
+
+
+set custom_headers          "X-No-Archive: yes"
+set decode_directory        "News"
+set editor_command          "vim '+/^$/+'"
+set failed_posts_file       "News/dead.letter" % where failed posts go
+set followup_custom_headers "X-No-Archive: yes"
+set hostname                "channelsix.org"
+set macro_directory         "/usr/local/share/slrn/macros,~/.slrn/macros,/usr/share/slrn/macros/"
+set mail_editor_command     "mutt -H '%s'"
+set mail_editor_is_mua      1
+set non_Xbrowser            "elinks '%s'"
+set postpone_directory      "News/postpone"
+set post_editor_command     "vim '+/^$/+'"
+%set post_object             "nntp"
+%set printer_name            "lpr -Pdesensitized.org"
+set read_active             1
+set save_posts              "News/posts"
+set save_replies            "News/replies"
+set scorefile               ".slrn/scorefile"
+set signature               "~/.slrn/signature"
+%set username                "jaskiern"
+set Xbrowser                "firefox '%s' &"
+
+
+% (X-)Mail-Copies-To:
+
+
+% Colors
+%
+
+include .slrn/colors.color
+%include .slrn/color.alt
+include .slrn/colors.mono
+include .slrn/bindings
+
+interpret "color.sl"
+setkey article edit_colors "%"
+
+
+% vim: syntax=slrnrc

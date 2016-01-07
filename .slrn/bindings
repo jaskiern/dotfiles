@@ -1,0 +1,62 @@
+% bindings
+%
+% Jerry Jaskierny <jaskiern@fscked.org>
+%     Last modified:  Sat Jan 17 02:06:56 CST 2004
+%
+%%
+
+%  The "group" keymap contains all functions in group mode, "article"
+%  contains the functions in article mode (note that header overview and
+%  pager do not have separate keymaps); finally, the "readline" keymap can
+%  be used to customize the line editor.
+
+setkey group    group_search_backward  "?"
+%setkey group    line_down              "j"
+setkey group    line_up                "k"
+setkey group    page_down              "^f"
+setkey group    page_up                "^b"
+setkey group    post                   "p"
+
+%setkey article  article_line_down      "j"
+setkey article  article_line_up        "k"
+setkey article  article_page_down      "^f"
+setkey article  article_page_up        "^b"
+setkey article  browse_url             "V"
+setkey article  expunge                "$"
+setkey article  forward                "f"
+setkey article  followup               "F"
+setkey article  header_line_down       "J"
+%setkey article  header_line_up         "K"
+setkey article  hide_article           "i"
+setkey article  post                   "p"
+setkey article  print                  "P"
+setkey article  tag_header             "t"
+setkey article  toggle_headers         "H"
+setkey article  create_score           "e"
+
+%setkey readline
+
+
+
+% escape codes are different in X and the console
+#if$DISPLAY     % if using X
+
+setkey group    help                   "\e\117\120"  % <F1>
+
+setkey article  help                   "\e\117\120"  % <F1>
+
+setkey readline help                   "\e\117\120"  % <F1>
+
+
+
+#else     % if using console
+
+setkey group    help                   "\e\133\133\101"  % <F1>
+
+setkey article  help                   "\e\133\133\101"  % <F1>
+
+setkey readline help                   "\e\133\133\101"  % <F1>
+
+#endif
+
+% vim: syntax=slrnrc
