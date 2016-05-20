@@ -1,0 +1,4 @@
+
+function calc() {
+    bc -l <<< "$@"
+}
