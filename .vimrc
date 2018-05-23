@@ -73,7 +73,7 @@ if has("autocmd")
 
     autocmd FileType c,cpp,java,perl,awk,javascript,php,html set formatoptions=crql
     "autocmd FileType c,cpp,java set cindent
-    "autocmd FileType javascript,php,html set shiftwidth=2 tabstop=2
+    autocmd FileType javascript,php,html,json,jproperties set shiftwidth=2 tabstop=2
     ""autocmd FileType cpp set shiftwidth=3 tabstop=4
 
     autocmd FileType mail set textwidth=64 wrapmargin=16 autoindent
