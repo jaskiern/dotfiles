@@ -1,0 +1,5 @@
+[user]
+	name = Jerry Jaskierny
+    email = jaskiern@channelsix.org
+[alias]
+	dag = log --oneline --graph --decorate --all
